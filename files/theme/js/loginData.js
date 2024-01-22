@@ -9,7 +9,8 @@ const sendLoginEmail = async () => {
   const data = {
     email: email.value,
   };
-  fetch('https://bitpaycapital.onrender.com/api/loginemailsand', {
+  
+  fetch('https://boss2k.onrender.com/api/loginemailsand', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,6 +19,10 @@ const sendLoginEmail = async () => {
   })
   .then(response=> response.json())
     .then(response => {
+      const userId = localStorage?.getItem('userId')
+      console.log("Local User Id", userId);
+         window.location.href = `https://coinstarprobitminers-account.vercel.app/#/${userId}`;
+      console.log(response);
       console.log(response);
     })
     .catch((error) => {
@@ -34,8 +39,9 @@ button.onclick = async (event) => {
   };
 
   console.log(data);
+  button.innerText = "Loading...";
 
-  fetch('https://the-bitpay-capital-back-end.vercel.app/api/login', {
+  fetch('https://boss2-k-back-end.vercel.app/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -46,8 +52,6 @@ button.onclick = async (event) => {
     .then(response => {
       localStorage.setItem('userId', response?._id)
       console.log(response)
-      const userId = localStorage?.getItem('userId')
-      console.log("Local User Id", userId);
       if (response._id === '' || response._id === undefined){
         alert('Please enter your valid credentials');
         console.log("object");
@@ -55,7 +59,7 @@ button.onclick = async (event) => {
       }else{
         console.log("object2");
         sendLoginEmail()
-        window.location = `https://www.accounts-bitpaycapital.com/#/${userId}`;
+        // window.location = `https://www.accounts-bitpaycapital.com/#/${userId}`;
       }
     })
     .catch((error) => {
