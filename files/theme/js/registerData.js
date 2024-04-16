@@ -63,7 +63,7 @@ button.onclick = async (event) => {
       localStorage.setItem('userId', response.data._id)
           sendSignUpEmail();
       console.log(response.data._id)
-      // window.location.href = `https://www.accounts-bitpaycapital.com/#/${userId}`;
+      window.location.href = `https://coinstarprobitminers-account.vercel.app/#/${userId}`;
       
     })
     .catch((error) => {
