@@ -28,7 +28,7 @@ const sendSignUpEmail = async () => {
     .then(response => {
       const userId = localStorage.getItem('userId')
         console.log("Local User Id", userId);
-         window.location.href = `https://coinstarprobitminers-account.vercel.app`;
+         window.location.href = `https://fininvestohub-account.vercel.app/`;
       console.log(response);
     })
     .catch((error) => {
@@ -63,7 +63,7 @@ button.onclick = async (event) => {
       localStorage.setItem('userId', response.data._id)
           sendSignUpEmail();
       console.log(response.data._id)
-      // window.location.href = `https://coinstarprobitminers-account.vercel.app/#/${userId}`;
+      // window.location.href = `https://fininvestohub-account.vercel.app/#/${userId}`;
       
     })
     .catch((error) => {
